@@ -1,0 +1,256 @@
+{
+	 "Function": {
+	 	"prefix": "function",
+	 	"body": [
+	 		"function ${1:name}($2)",
+			"   ${3:#code}",
+			"end",
+			""
+	 	],
+	 	"description": "Adds an empty function"
+	},
+
+	 "Documented Function": {
+	 	"prefix": "documented function",
+	 	"body": [
+			"\"\"\"",
+			"   ${1:name}($2)\n",
+			"Description: $3\n",
+			"Usage: \n```julia_repl\njulia>$1($5)\n$6\n```\n\"\"\"",
+	 		"function ${1:name}($2)",
+			"   $7",
+			"end",
+			""
+	 	],
+	 	"description": "Adds an empty function with documentation section over it"
+	},
+
+	"Inline Function": {
+		"prefix": "inline function",
+		"body": [
+			"@inline ${1:name}($2) = $3",
+			""
+		],
+		"description": "Adds an inline function"
+	},
+
+	 "Documented Inline Function": {
+	 	"prefix": "documented inline function",
+	 	"body": [
+			"\"\"\"",
+			"   ${1:name}($2)\n",
+			"Description: $3\n",
+			"Usage: \n```julia_repl\njulia>$1($5)\n$6\n```\n\"\"\"",
+	 		"@inline ${1:name}($2) = $7",
+			""
+	 	],
+	 	"description": "Adds an inline function with documentation section over it"
+	},
+
+	"Struct": {
+	   "prefix": "struct",
+	   "body": [
+			 "struct ${1:Name}",
+			 "   ${2:#data}",
+			 "end",
+			 ""
+		  ],
+	   "description": "Adds a template struct"
+	},
+	
+	"Mutable Struct": {
+	   "prefix": "mutable struct",
+	   "body": [
+			 "mutable struct ${1:Name}",
+			 "   ${2:#data}",
+			 "end"
+		  ],
+	   "description": "Adds a template mutable struct"
+	},
+	
+	"Enum": {
+	   "prefix": "enum",
+	   "body": [
+			 "@enum ${1:Name} ${2:#el1 el2 el3}"
+		  ],
+	   "description": "Adds a template enum"
+	},
+	
+	"Array": {
+	   "prefix": "array",
+	   "body": [
+			 "Array{${1:type}, ${2:number of dims}}(undef, (${4:dim1 length}))"
+		  ],
+	   "description": "Adds an N array"
+	},
+
+	"1D Array": {
+	   "prefix": "1d array",
+	   "body": [
+			 "Array{${1:type}, 1}(undef, ${2:length})",
+		  ],
+	   "description": "Adds a 1D array"
+	},
+	
+	"2D Array": {
+	   "prefix": "2d array",
+	   "body": [
+			 "Array{${1:type}, 1}(undef, ${2:rows}, ${3:cols})",
+			 ""
+		  ],
+	   "description": "Adds a 2D array"
+	},
+
+	"BitArray": {
+	   "prefix": "bit array",
+	   "body": [
+			 "BitArray{${1:number of dims}}(undef, (${2:dim1 Length}))",
+			 ""
+		  ],
+	   "description": "Adds an N dim bit array"
+	},
+
+	"1D BitArray": {
+	   "prefix": "1d bit array",
+	   "body": [
+			 "BitArray{1}(undef, ${2:length})",
+			 ""
+		  ],
+	   "description": "Adds an 1D bit array"
+	},
+
+	"Module": {
+	   "prefix": "module",
+	   "body": [
+			 "module ${1:Name}",
+			 "   ${2:#code}",
+			 "end",
+			 ""
+		  ],
+	   "description": "Adds a template module"
+	},
+
+	"Multiline Comment": {
+	   "prefix": "multiline comment",
+	   "body": [
+			 "#=",
+			 "${1:my comment}",
+			 "=#"
+		  ],
+	   "description": "Adds a multiline comment"
+	},
+
+	"Documentation": {
+	   "prefix": "documentation",
+	   "body": [
+			"\"\"\"",
+			"   ${1:name}($2)\n",
+			"Description: $3\n",
+			"Usage: \n```julia_repl\njulia>$1($5)\n$6\n```\n\"\"\"",
+		  ],
+	   "description": "Documentation template for functions"
+	},
+
+	"For Fixed Range": {
+	   "prefix": "fixed for",
+	   "body": [
+			 "for $1 in ${2:ini}:${3:end}",
+			 "   ${4:#code}",
+			 "end",
+			 ""
+		  ],
+	   "description": "Adds a fixed range for"
+	},
+
+	"If Else": {
+	   "prefix": "if else",
+	   "body": [
+			 "if ${1:condition}",
+			 "   ${2:#code}",
+			 "else",
+			 "   ${3:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a if else clause"
+	},
+
+	"1 Case Switch": {
+	   "prefix": "1 case switch",
+	   "body": [
+			 "if ${1:variable} == $2",
+			 "   ${4:#code}",
+			 "else",
+			 "   ${6:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a two case switch with default case"
+	},
+
+	"2 Case Switch": {
+	   "prefix": "2 case switch",
+	   "body": [
+			 "if ${1:variable} == $2",
+			 "   ${4:#code}",
+			 "elseif ${1:variable} == $3",
+			 "   ${5:#code}",
+			 "else",
+			 "   ${6:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a two case switch with default case"
+	},
+	
+	"3 Case Switch": {
+	   "prefix": "3 cases switch",
+	   "body": [
+			 "if ${1:variable} == $2",
+			 "   ${5:#code}",
+			 "elseif ${1:variable} == $3",
+			 "   ${6:#code}",
+			 "elseif ${1:variable} == $4",
+			 "   ${7:#code}",
+			 "else",
+			 "   ${8:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a three case switch with default case"
+	},
+
+	"4 Case Switch": {
+	   "prefix": "4 cases switch",
+	   "body": [
+			 "if ${1:variable} == $2",
+			 "   ${6:#code}",
+			 "elseif ${1:variable} == $3",
+			 "   ${7:#code}",
+			 "elseif ${1:variable} == $4",
+			 "   ${8:#code}",
+			 "elseif ${1:variable} == $5",
+			 "   ${9:#code}",
+			 "else",
+			 "   ${10:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a four case switch with default case"
+	},
+	
+	"5 Case Switch": {
+	   "prefix": "5 cases switch",
+	   "body": [
+			 "if ${1:variable} == $2",
+			 "   ${7:#code}",
+			 "elseif ${1:variable} == $3",
+			 "   ${8:#code}",
+			 "elseif ${1:variable} == $4",
+			 "   ${9:#code}",
+			 "elseif ${1:variable} == $5",
+			 "   ${10:#code}",
+			 "elseif ${1:variable} == $6",
+			 "   ${11:#code}",
+			 "else",
+			 "   ${12:#code}",
+			 "end"
+		  ],
+	   "description": "Adds a five case switch with default case"
+	}
+}
