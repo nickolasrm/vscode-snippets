@@ -1,10 +1,10 @@
 # VSCode Snippets
 My vscode user-defined snippets.
 
-Currently supported languages:
+## Currently supported languages:
 * Julia
 
-How do I use it?
+## How do I use it?
 1. You have to have the 'Snippet' extension installed. You can download it here: https://marketplace.visualstudio.com/items?itemName=vscode-snippet.Snippet
 2. Execute the following steps in vscode:
     1. Press these keys: `CTRL+Shift+P`
